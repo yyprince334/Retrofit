@@ -18,6 +18,7 @@ import com.prince.retrofit.viewmodel.MainViewModelFactory
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+         //view component references
          val textView = findViewById<TextView>(R.id.textView)
          val button = findViewById<Button>(R.id.button)
          val number_editText = findViewById<TextView>(R.id.number_editText)
