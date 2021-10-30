@@ -26,9 +26,9 @@ class MainViewModel(private val repository: Repository): ViewModel() {
             myResponse2.value = response
         }
     }
-    fun getCustomPost(userId: Int) {
+    fun getCustomPost(userId: Int, sort: String, order: String) {
         viewModelScope.launch {
-            val response = repository.getCustomPost(userId)
+            val response = repository.getCustomPost(userId, sort, order)
             myResponse3.value = response
         }
     }

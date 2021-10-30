@@ -2,6 +2,7 @@ package com.prince.retrofit
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.Observer
@@ -29,10 +30,16 @@ import com.prince.retrofit.viewmodel.MainViewModelFactory
 
          button.setOnClickListener {
              val myNumber = number_editText.text.toString()
-             viewModel.getCustomPost(Integer.parseInt(myNumber))
+             viewModel.getCustomPost(Integer.parseInt(myNumber),"id", "desc")
              viewModel.myResponse3.observe(this, Observer {response ->
                  if (response.isSuccessful) {
-                     textView.text = response.body()?.toString()
+                     response.body()?.forEach {
+                         Log.d("Response", it.userId.toString())
+                         Log.d("Response", it.id.toString())
+                         Log.d("Response", it.title)
+                         Log.d("Response", it.body)
+                         Log.d("Response", "______________")
+                     }
                  }else {
                      textView.text = response.code().toString()
                  }
